@@ -17,7 +17,10 @@ const NavBr = () => {
             <Nav className="me-auto">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/about">Acerca de Nosotros</Nav.Link>
-              <AccountDropDown/>
+              
+            </Nav>
+            <Nav className="">
+            <AccountDropDown/>
             </Nav>
           </Navbar.Collapse>
         </Container>
