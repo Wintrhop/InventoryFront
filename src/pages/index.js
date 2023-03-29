@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import styles from '@/styles/Home.module.scss'
-import NavBr from '@/components/NavBr'
 import React from 'react'
 
 
@@ -20,7 +19,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-    <NavBr/>
+    
       </main>
     </>
   )

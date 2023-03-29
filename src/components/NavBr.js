@@ -9,17 +9,17 @@ import AccountDropDown from "./AccountDropDown";
 const NavBr = () => {
   return (
     <>
-      <Navbar className={styles.navBr} expand="lg">
+      <Navbar className={`${styles.navBr} w-75 p-3 position-absolute top-0 start-50 translate-middle-x`} expand="sm">
         <Container>
           <Navbar.Brand href="/">Inventarios</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
+            <Nav className="">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/about">Acerca de Nosotros</Nav.Link>
               
             </Nav>
-            <Nav className="">
+            <Nav className="ms-auto">
             <AccountDropDown/>
             </Nav>
           </Navbar.Collapse>
