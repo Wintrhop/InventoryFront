@@ -9,7 +9,7 @@ import AccountDropDown from "./AccountDropDown";
 const NavBr = () => {
   return (
     <>
-      <Navbar className={`${styles.navBr} w-75 p-3 position-absolute top-0 start-50 translate-middle-x`} expand="sm">
+      <Navbar className={`${styles.navBr} w-75 p-3 position-relative top-0 start-50 translate-middle-x`} expand="sm">
         <Container>
           <Navbar.Brand href="/">Inventarios</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

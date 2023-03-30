@@ -1,12 +1,17 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: 'Poppins', sans-serif;
-
+  --font-mono: "Poppins", sans-serif;
+  --box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.056),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.065),
+    12.5px 12.5px 10px rgba(0, 0, 0, 0.067),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.066),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.064),
+    100px 100px 80px rgba(0, 0, 0, 0.07);
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-
+--btn-gradient:linear-gradient(128deg, #265077,#5085A5);
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
     #16abff33 0deg,
@@ -91,7 +96,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-    font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 a {
