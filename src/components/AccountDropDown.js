@@ -12,7 +12,7 @@ const AccountDropDown = () => {
     <NavDropdown title="Perfil" id="basic-nav-dropdown">
       <NavDropdown.Item onClick={handleShow}>inicia Sesion</NavDropdown.Item>
       <MyModal size ={"sm"} title={"Inicia Sesion"} show={show} handleClose={handleClose}>
-        <SignIn/>
+        <SignIn handleClose={handleClose}/>
       </MyModal>
       <NavDropdown.Divider />
       <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
