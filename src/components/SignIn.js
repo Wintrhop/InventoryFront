@@ -2,10 +2,12 @@ import React, { useRef, useState } from "react";
 import { FloatingLabel, Form, Button } from "react-bootstrap";
 import styles from "../styles/components/SignIn.module.scss";
 import axios from "axios";
-import MyAlert from "./MyAlert";
 import Swal from "sweetalert2";
+import { useDispatch } from "react-redux";
+import { changeName, changeRole, changeToken } from "@/store/slices/authSlice";
 
 const SignIn = ({ handleClose }) => {
+  const dispatch = useDispatch();
   const [validated, setValidated] = useState(false);
   const [passVal, setPassVal] = useState(
     "ingrese una contraseña de 8 caracteres, una mayuscula una minuscula un numero y un caracter especial"
@@ -17,15 +19,12 @@ const SignIn = ({ handleClose }) => {
     const form = e.currentTarget;
     e.preventDefault();
     if (form.checkValidity() === false) {
-      
       e.stopPropagation();
     }
 
     setValidated(true);
 
     if (form.checkValidity() === true) {
-     
-      
       try {
         const password = form.password.value;
         const email = form.email.value;
@@ -48,17 +47,18 @@ const SignIn = ({ handleClose }) => {
           icon: "success",
           title: "Sesión iniciada",
         });
-        
+
         localStorage.setItem("token", data.data.token);
         localStorage.setItem("role", data.data.role);
         localStorage.setItem("name", data.data.name);
         localStorage.setItem("email", data.data.email);
         localStorage.setItem("org", data.data.org);
-
+        dispatch(changeName(data.data.name));
+        dispatch(changeRole(data.data.role));
+        dispatch(changeToken(data.data.token));
 
         handleClose();
       } catch (error) {
-        
         Swal.fire({
           title: "Error",
           text: "Ocurrio un error al iniciar sesión revisa tus datos",
