@@ -15,23 +15,13 @@ import { isExpired } from "react-jwt";
 import ConditionalRenderToken from "./ConditionalRenderToken";
 import { useSelector } from "react-redux";
 
-
 const NavBr = () => {
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState("");
   const reduxToken = useSelector((state) => state.auth.token);
-  
-  
-  
+
   useEffect(() => {
-    setUserName(localStorage.getItem('name'));
-    
-  
-  }, [reduxToken])
-  
-     
-  
-  
-  
+    setUserName(localStorage.getItem("name"));
+  }, [reduxToken]);
 
   return (
     <>
@@ -48,7 +38,10 @@ const NavBr = () => {
               <Nav.Link href="/about">Acerca de Nosotros</Nav.Link>
             </Nav>
             <Nav className="ms-auto">
-              <ConditionalRenderToken className={`${styles.nameFlex}`} childrenOnline={`Hola ${userName}`}/>
+              <ConditionalRenderToken
+                className={`${styles.nameFlex}`}
+                childrenOnline={`Hola ${userName}`}
+              />
               <AccountDropDown />
             </Nav>
           </Navbar.Collapse>

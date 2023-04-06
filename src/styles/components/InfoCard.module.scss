@@ -1,0 +1,87 @@
+.infoCardContainerFlex {
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--box-shadow1);
+  border-radius: 12px;
+
+  .infoCardTitle {
+    
+    color: #265077;
+    text-align: center;
+
+    h4{
+font-size: 26px;
+font-weight:bold ;
+    }
+  }
+  .infoCardContainerText {
+    display: flex;
+    font-size: 16px;
+    text-align: justify;
+    padding: 10px;
+  }
+}
+.compDirCol {
+  flex-direction: column;
+}
+.textDirCol {
+  flex-direction: column;
+}
+.compDirRow {
+    flex-direction: row;
+  }
+  .textDirRow {
+    flex-direction: row;
+  }
+
+@media (min-width: 576px) {
+    .infoCardContainerText {
+        
+        margin: 10px 25px;
+      }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .infoCardContainerFlex{
+        max-width: 75%;
+    }
+    .infoCardContainerText {
+        
+        margin: 15px 40px;
+      }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .infoCardContainerFlex{
+        max-width: 50%;
+        flex-direction: row;
+        align-items: center;
+    }
+    .infoCardTitle{
+      margin-left: 40px;
+    }
+    .infoCardContainerText {
+        
+        margin: 15px 48px;
+      }
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    .infoCardContainerFlex{
+        
+        max-width: 50%;
+        
+    }
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+    .infoCardContainerFlex{
+        
+        max-width: 45%;
+        
+    }
+}

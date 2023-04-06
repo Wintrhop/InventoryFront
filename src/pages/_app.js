@@ -6,6 +6,7 @@ import SSRProvider from "react-bootstrap/SSRProvider";
 import NavBr from "@/components/NavBr";
 import { store } from "@/store/store";
 import { Provider } from "react-redux";
+import styles from '@/styles/Home.module.scss'
 
 
 export default function App({ Component, pageProps }) {
@@ -20,7 +21,10 @@ export default function App({ Component, pageProps }) {
       <SSRProvider>
         <Provider store={store}>
         <NavBr/>
+        <main className={styles.main}>
         <Component {...pageProps} />
+        </main>
+        
         </Provider>
       </SSRProvider>
     </>

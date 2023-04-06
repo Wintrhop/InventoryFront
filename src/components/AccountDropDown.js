@@ -6,7 +6,7 @@ import ConditionalRenderToken from "./ConditionalRenderToken";
 import { useDispatch } from "react-redux";
 import { changeName, changeRole, changeToken } from "@/store/slices/authSlice";
 
-const AccountDropDown = ({ tokenExpired }) => {
+const AccountDropDown = () => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
 
