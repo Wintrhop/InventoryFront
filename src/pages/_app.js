@@ -5,9 +5,8 @@ import { useRouter } from "next/router";
 import SSRProvider from "react-bootstrap/SSRProvider";
 import NavBr from "@/components/NavBr";
 import { store } from "@/store/store";
-import { Provider } from "react-redux";
-import styles from '@/styles/Home.module.scss'
-
+import styles from "@/styles/Home.module.scss";
+import ReduxProvider from "@/store/ReduxProvider";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -18,15 +17,18 @@ export default function App({ Component, pageProps }) {
   }, [router.events]);
   return (
     <>
+    
       <SSRProvider>
-        <Provider store={store}>
-        <NavBr/>
-        <main className={styles.main}>
-        <Component {...pageProps} />
-        </main>
         
-        </Provider>
+          <ReduxProvider>
+            <NavBr />
+            <main className={styles.main}>
+              <Component {...pageProps} />
+            </main>
+            </ReduxProvider>
+        
       </SSRProvider>
+      
     </>
   );
 }
