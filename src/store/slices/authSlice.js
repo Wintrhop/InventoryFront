@@ -1,5 +1,6 @@
 'use client';
 import { createSlice } from "@reduxjs/toolkit";
+import {HYDRATE} from "next-redux-wrapper"
 
 const initialState = {
   
@@ -32,10 +33,18 @@ export const authSlice = createSlice({
       };
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(HYDRATE, (state, action) => {
+      return {
+        ...state,
+        ...action.payload.authRedux,
+      };
+    })
+  }
 });
 
 // Action creators are generated for each case reducer function
 export const { changeName, changeRole, changeToken } =
   authSlice.actions;
 
-export default authSlice.reducer;
+export default authSlice;
