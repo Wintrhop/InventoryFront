@@ -7,8 +7,10 @@ import NavBr from "@/components/NavBr";
 import { store } from "@/store/store";
 import styles from "@/styles/Home.module.scss";
 import ReduxProvider from "@/store/ReduxProvider";
+import { Provider } from "react-redux";
+import { wrapper } from "@/store/store";
 
-export default function App({ Component, pageProps }) {
+ function App({ Component, pageProps }) {
   const router = useRouter();
   useEffect(() => {
     typeof document !== undefined
@@ -20,15 +22,14 @@ export default function App({ Component, pageProps }) {
     
       <SSRProvider>
         
-          <ReduxProvider>
             <NavBr />
             <main className={styles.main}>
               <Component {...pageProps} />
             </main>
-            </ReduxProvider>
-        
+           
       </SSRProvider>
       
     </>
   );
 }
+export default wrapper.withRedux(App);
