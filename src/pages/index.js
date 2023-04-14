@@ -5,8 +5,22 @@ import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import React from 'react'
 import MisionAndVision from '@/components/MisionAndVision'
+import { wrapper } from '@/store/store';
+import { changeName, changeRole } from '@/store/slices/authSlice';
 
-
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) =>
+    async (context) => {
+      console.log("State on server", store.getState().auth);
+      store.dispatch(changeName('hola soy yo'));
+      store.dispatch(changeRole('role'));
+      return {
+        props: {
+          
+        },
+      };
+    }
+);
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {

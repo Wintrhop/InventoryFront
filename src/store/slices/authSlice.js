@@ -35,10 +35,22 @@ export const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(HYDRATE, (state, action) => {
-      return {
-        ...state,
-        ...action.payload.authRedux,
-      };
+      console.log('hydrate ', action.payload);
+      // return {
+      //   ...state,
+      //   ...action.payload.authRedux,
+      // };
+      if (action.payload.auth.name !== undefined) {
+        return state;
+      } 
+       state = {
+        name: action.payload.auth.name,
+        role: action.payload.auth.role,
+        token:action.payload.auth.token
+       }
+      
+       // preserve count value on client side navigation
+      // return nextState;
     })
   }
 });

@@ -16,8 +16,15 @@ import AccountDropDown from "./AccountDropDown";
 import { isExpired } from "react-jwt";
 import ConditionalRenderToken from "./ConditionalRenderToken";
 import { useSelector } from "react-redux";
+import { wrapper } from "@/store/store";
 
-const NavBr = () => {
+export const getStaticProps = wrapper.getStaticProps(store=>({preview})=>{
+  console.log(store.getState());
+  // store.dispatch({ type: "SET_NAME", payload: "Seymur" });
+  return {props: {status: "online"}};
+});
+
+const NavBr = (props) => {
   const [userName, setUserName] = useState("");
   const [role, setRole]=useState('');
   const reduxToken = useSelector((state) => state.auth.token);

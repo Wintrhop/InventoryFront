@@ -4,7 +4,7 @@ import authReducer from './slices/authSlice'
 import {createWrapper} from 'next-redux-wrapper';
 
 
-const makeStore = () =>
+const makeStore = (context) =>
   configureStore({
     reducer: {
       auth: authReducer.reducer,
