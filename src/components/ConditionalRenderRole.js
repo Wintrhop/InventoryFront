@@ -1,28 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { useRouter } from 'next/router'
-import { isExpired } from "react-jwt";
 import { useSelector } from "react-redux";
-import RedirectPage from "./RedirectPage";
+import ConditionalRenderToken from "./ConditionalRenderToken";
 
-const ConditionalRenderRole = () => {
-const router = useRouter();
+const ConditionalRenderRole = ({
+  adminUi,
+  clientUi,
+  projectWorkerUi,
+  supportUi,
+}) => {
   const reduxToken = useSelector((state) => state.auth.token);
   const reduxRole = useSelector((state) => state.auth.role);
-  const [token, setToken] = useState("");
-  const [role, setRole] = useState("");
+  const [userUi, setUserUi] = useState(null);
 
   useEffect(() => {
-    setToken(localStorage.getItem("token"));
-    setRole(localStorage.getItem("role"));
+    if (reduxRole === "admin") setUserUi(adminUi);
+    if (reduxRole === "client") setUserUi(clientUi);
+    if (reduxRole === "projectWorker") setUserUi(projectWorkerUi);
+    if (reduxRole === "support") setUserUi(supportUi);
   }, [reduxToken, reduxRole]);
-  const tokenExpired = isExpired(token);
-//   const handleOffLine =()=> router.push('/');
   return (
-  <> 
-  {tokenExpired?<>offline</>:
-  <RedirectPage/>
-  }
-  </>
+    <>
+      <ConditionalRenderToken
+        
+        childrenOnline={userUi}
+      />
+    </>
   );
 };
 

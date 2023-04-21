@@ -6,14 +6,12 @@ const ConditionalRenderToken = ({childrenOnline, childrenOffline, className}) =>
 
     const reduxToken = useSelector((state) => state.auth.token);
     const [token, setToken]= useState('')
-  
-  
+    
     useEffect(() => {
       
-      setToken(localStorage.getItem("token"))
-    
+        setToken(localStorage.getItem("token"))
+        
     }, [reduxToken])
-    
     
     const tokenExpired = isExpired(token);
   return (
