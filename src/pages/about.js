@@ -6,24 +6,27 @@ import { useSelector, useDispatch } from "react-redux";
 import React from "react";
 import { wrapper } from "@/store/store";
 import { changeName, changeRole, changeToken } from "@/store/slices/authSlice";
+import stylesApp from '@/styles/Home.module.scss'
 
-export const getServerSideProps = wrapper.getServerSideProps(
-  (store) =>
-    async (context) => {
-      console.log("State on server", store.getState().auth);
+// export const getServerSideProps = wrapper.getServerSideProps(
+//   (store) =>
+//     async (context) => {
+//       console.log("State on about", store.getState());
       
-      return {
-        props: {
-          
-        },
-      };
-    }
-);
+//       return {
+//         props: {
+//         },
+//       };
+//     }
+// );
 
 function about(props) {
   return (
     <>
-      <AboutInfo />
+    <main className={stylesApp.main}>
+    <AboutInfo />
+    </main>
+      
     </>
   );
 }

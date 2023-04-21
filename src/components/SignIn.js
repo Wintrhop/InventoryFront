@@ -59,6 +59,7 @@ const SignIn = ({ handleClose }) => {
 
         handleClose();
       } catch (error) {
+        
         Swal.fire({
           title: "Error",
           text: "Ocurrio un error al iniciar sesión revisa tus datos",

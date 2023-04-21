@@ -1,26 +1,29 @@
-'use client';
+
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import React from 'react'
 import MisionAndVision from '@/components/MisionAndVision'
-import { wrapper } from '@/store/store';
-import { changeName, changeRole } from '@/store/slices/authSlice';
+import { wrapper } from '@/store/store'
+import { changeName, changeRole, changeToken } from '@/store/slices/authSlice';
+import styles from '@/styles/Home.module.scss'
 
-export const getServerSideProps = wrapper.getServerSideProps(
-  (store) =>
-    async (context) => {
-      console.log("State on server", store.getState().auth);
-      store.dispatch(changeName('hola soy yo'));
-      store.dispatch(changeRole('role'));
-      return {
-        props: {
+// export const getServerSideProps = wrapper.getServerSideProps(
+//   (store) =>
+//     async (context) => {
+//       console.log("State on index", store.getState().auth);
+//       store.dispatch(changeName('hola soy yo'));
+//       store.dispatch(changeRole('role'));
+//       store.dispatch(changeToken('init token'));
+//       console.log("State on index despues de dispatch", store.getState().auth);
+//       return {
+//         props: {
           
-        },
-      };
-    }
-);
+//         },
+//       };
+//     }
+// );
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -32,8 +35,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
-    <MisionAndVision />
+      <main className={styles.main}>
+      <MisionAndVision />
+      </main>
+    
       
     </>
   )

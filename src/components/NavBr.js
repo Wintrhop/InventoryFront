@@ -1,4 +1,4 @@
-'use client';
+
 
 import {
   Container,
@@ -18,11 +18,7 @@ import ConditionalRenderToken from "./ConditionalRenderToken";
 import { useSelector } from "react-redux";
 import { wrapper } from "@/store/store";
 
-export const getStaticProps = wrapper.getStaticProps(store=>({preview})=>{
-  console.log(store.getState());
-  // store.dispatch({ type: "SET_NAME", payload: "Seymur" });
-  return {props: {status: "online"}};
-});
+
 
 const NavBr = (props) => {
   const [userName, setUserName] = useState("");
@@ -41,20 +37,20 @@ const NavBr = (props) => {
 
   return (
     <>
-      <Navbar
+      <Navbar 
         className={`${styles.navBr} w-75 p-3 position-relative top-0 start-50 translate-middle-x`}
         expand="sm"
       >
         <Container>
-          <Navbar.Brand href="/">Inventarios</Navbar.Brand>
+          <Navbar.Brand href="/" as={Link}>Inventarios</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/about">Acerca de Nosotros</Nav.Link>
+              <Nav.Link href="/" as={Link}>Home</Nav.Link>
+              <Nav.Link href="/about" as={Link}>Acerca de Nosotros</Nav.Link>
               <ConditionalRenderToken childrenOnline={
                 <>
-                <Nav.Link href="/controllPanel">Panel de {role}</Nav.Link>
+                <Nav.Link href="/controllPanel" as={Link}>Panel de {role}</Nav.Link>
               </>
               } />
               

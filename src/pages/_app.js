@@ -2,12 +2,9 @@ import "@/styles/globals.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import SSRProvider from "react-bootstrap/SSRProvider";
+import NoSSRWrapper from "@/components/NoSSRWrapper";
 import NavBr from "@/components/NavBr";
-import { store } from "@/store/store";
-import styles from "@/styles/Home.module.scss";
-import ReduxProvider from "@/store/ReduxProvider";
-import { Provider } from "react-redux";
+
 import { wrapper } from "@/store/store";
 
  function App({ Component, pageProps }) {
@@ -20,16 +17,15 @@ import { wrapper } from "@/store/store";
   return (
     <>
     
-      <SSRProvider>
-        
-            <NavBr />
-            <main className={styles.main}>
+      
+        <NoSSRWrapper children={<NavBr />}/>
               <Component {...pageProps} />
-            </main>
-           
-      </SSRProvider>
+            
+            
+      
       
     </>
   );
 }
+
 export default wrapper.withRedux(App);
