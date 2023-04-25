@@ -1,8 +1,11 @@
 import React from 'react'
+import ProjectCharts from './ProjectCharts'
 
 const AdminPanel = () => {
   return (
-    <div>AdminPanel</div>
+    <>
+    <ProjectCharts/>
+    </>
   )
 }
 
