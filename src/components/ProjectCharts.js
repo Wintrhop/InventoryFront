@@ -38,21 +38,20 @@ const ProjectCharts = () => {
       <div className={styles.projectContainer}>
         <LoadingSpinner
           loadState={isLoading}
-          elementToRend={<>{
-            projects.map((item) => {
-              return (
-                
-                  <ProjectCard item={item} />
-                // link en la card para direccionar y consulta
-              );
-            })
-          
+          elementToRend={
+            <>
+              {projects.map((item) => {
+                return (
+                  <div className={styles.cardContainer} key={item._id}>
+                    <ProjectCard item={item} />
+                  </div>
+
+                  // link en la card para direccionar y consulta
+                );
+              })}
+            </>
           }
-          </>
-            
-        }
         />
-        
       </div>
     </>
   );

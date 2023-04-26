@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import ConditionalRenderToken from "./ConditionalRenderToken";
+import styles from '../styles/components/ConditionalRole.module.scss'
 
 const ConditionalRenderRole = ({
+  
   adminUi,
   clientUi,
   projectWorkerUi,
@@ -21,7 +23,7 @@ const ConditionalRenderRole = ({
   return (
     <>
       <ConditionalRenderToken
-        
+        className={styles.userUi}
         childrenOnline={userUi}
       />
     </>

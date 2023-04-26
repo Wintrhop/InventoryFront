@@ -3,7 +3,7 @@ import styles from "../styles/components/spinner.module.scss";
 
 const LoadingSpinner = ({ loadState, elementToRend }) => {
   return (
-    <>{loadState ? <span className={styles.loader}></span> : elementToRend}</>
+    <>{loadState ?<div className={styles.container}><span className={styles.loader}></span></div>:elementToRend}</>
   );
 };
 
